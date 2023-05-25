@@ -17,6 +17,7 @@ async fn main() -> Result<(), Error> {
     let response = reqwest::get(url).await?;
     let people : Vec<Person> = response.json::<PeopleResponse>().await?.results;
 
+    println!("People in page 1");
     for person in people {
         println!("Name: {}", person.name);
     }
